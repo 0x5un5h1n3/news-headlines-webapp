@@ -21,7 +21,7 @@ const NewsList = () => {
     };
 
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ padding: 2 }}>
             {articles.map((article, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
                     <NewsCard article={article} onClick={() => handleCardClick(article.url)} />

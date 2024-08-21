@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
 
 const NewsCard = ({ article, onClick }) => {
     return (
@@ -11,23 +11,26 @@ const NewsCard = ({ article, onClick }) => {
                 '&:hover': {
                     boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
                 },
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
             }}
         >
             <CardMedia
                 component="img"
-                height={140}
-                image={article.urlToImage || 'https://via.placeholder.com/140'}
+                height={180}
+                image={article.urlToImage || 'https://via.placeholder.com/180'}
                 alt={article.title}
-                sx={{ objectFit: 'cover' }}
+                sx={{ objectFit: 'cover', borderRadius: '10px 10px 0 0' }}
             />
-
-            <CardContent>
-                <Typography variant="h5" gutterBottom>
+            <CardContent sx={{ padding: 2, flex: 1 }}>
+                <Typography variant="h6" gutterBottom>
                     {article.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     {article.source.name}
                 </Typography>
+                <Box sx={{ flexGrow: 1 }} />
                 <Typography variant="body1" color="text.primary">
                     {article.description}
                 </Typography>
