@@ -1,14 +1,18 @@
+"use client";
+
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 
 const ArticleDetail = () => {
-    const router = useRouter();
-    const { url } = router.query;
+    const searchParams = useSearchParams();
+    const url = searchParams.get('url');
 
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold">Article Detail</h1>
-            {url && <iframe src={url} style={{ width: '100%', height: '80vh' }} title="Article" />}
+            {url && (
+                <iframe src={url} style={{ width: '100%', height: '80vh' }} title="Article" className="border border-gray-300 rounded"></iframe>
+            )}
         </div>
     );
 };

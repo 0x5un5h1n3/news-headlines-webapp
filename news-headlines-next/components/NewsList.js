@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import NewsCard from './NewsCard';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const NewsList = () => {
     const [articles, setArticles] = useState([]);
