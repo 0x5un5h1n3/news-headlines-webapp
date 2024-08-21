@@ -1,34 +1,134 @@
+/* globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+/* Light Mode Styles */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background-color: #f5f5f5;
+  /* Light background */
+  color: #333;
+  /* Dark text color */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.bg-primary {
+  background-color: #0070f3;
+  /* Light primary background */
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.bg-secondary {
+  background-color: #00b6f3;
+  /* Light secondary background */
+}
+
+/* Light Mode Text Colors */
+.text-primary {
+  color: #333;
+  /* Dark text color for light mode */
+}
+
+.text-secondary {
+  color: #666;
+  /* Medium text color for light mode */
+}
+
+/* Dark Mode Styles */
+.dark {
+  background-color: #121212;
+  /* Dark background */
+  color: #ffffff;
+  /* Light text color */
+}
+
+.dark .bg-primary {
+  background-color: #1e1e1e;
+  /* Dark primary background */
+}
+
+.dark .bg-secondary {
+  background-color: #3a3a3a;
+  /* Dark secondary background */
+}
+
+/* Dark Mode Text Colors */
+.dark .text-primary {
+  color: #ffffff;
+  /* Light text color for dark mode */
+}
+
+.dark .text-secondary {
+  color: #bbbbbb;
+  /* Light gray text color for dark mode */
+}
+
+/* News Card Styles */
+.news-card {
+  background-color: #ffffff;
+  /* White background for news cards in light mode */
+  border-radius: 8px;
+  /* Rounded corners */
+  padding: 16px;
+  /* Padding inside the card */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Shadow effect */
+  transition: background-color 0.3s ease;
+  /* Smooth transition for background color */
+}
+
+.dark .news-card {
+  background-color: #1e1e1e;
+  /* Dark background for news cards in dark mode */
+  color: #ffffff;
+  /* Light text color for news cards in dark mode */
+}
+
+/* Toggle Switch Styles (if needed) */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked+.toggle-slider {
+  background-color: #2196f3;
+}
+
+input:focus+.toggle-slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked+.toggle-slider:before {
+  transform: translateX(24px);
+}
